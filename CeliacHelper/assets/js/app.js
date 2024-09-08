@@ -1,6 +1,6 @@
 import alimentos from './dados.js';
 
-//Função para calcular a distância de Levenshtein entre duas strings - SUGESTÃO DO GEMINI
+//Função para calcular a distância de Levenshtein entre duas strings
 function calcularDistanciaLevenshtein(a, b) {
     const matriz = Array.from({ length: b.length + 1 }, (_, i) => [i]);
 
@@ -123,7 +123,9 @@ function mostrarResultado(alimento) {
             <p><strong>Pode consumir:</strong> ${alimento.podeComer ? 'Sim' : 'Não'}</p>
             <p><strong>Moderação necessária:</strong> ${alimento.moderacao ? 'Sim' : 'Não'}</p>
             <p><strong>Motivo:</strong> ${alimento.motivo}</p>
-            ${existe ? `<img src="${imagemUrl}" alt="${alimento.nome}">` : ''}
+            <div style="max-width: 100; max-height: 100; overflow: hidden; border-radius: 30px;">
+            ${existe ? `<img src="${imagemUrl}" alt="${alimento.nome}" style="max-width: 100%; max-height: 100%; border-radius: 10px;">` : ''}
+            </div>
         `;
     });
 }
